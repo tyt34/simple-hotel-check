@@ -1,0 +1,49 @@
+.main {
+  width: 1441px;
+  height: 1024px;
+  background-color: #E5E5E5;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.roof {
+  display: flex;
+  justify-content: space-between;
+}
+
+.roof__text {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  margin: 32px;
+}
+
+.roof__but {
+  display: flex;
+  justify-content: space-between;
+  width: 83px;
+  height: 34px;
+  padding: 0;
+  align-items: center;
+  margin-right: 32px;
+  margin-top: 34px;
+  border: 0;
+  cursor: pointer;
+  background-color: #E5E5E5;
+}
+
+.roof__title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: right;
+  letter-spacing: -0.408px;
+  color: #41522E;
+  margin: 0;
+}
