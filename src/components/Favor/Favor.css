@@ -1,0 +1,29 @@
+.favor {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  height: 472px;
+  background-color: rgb(250, 210, 252);
+  box-shadow: 0px 4px 33px rgba(0, 0, 0, 0.04);
+  border-radius: 16px;
+}
+
+.favor__title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  color: #424242;
+  margin: 0;
+  margin-left: 32px;
+  margin-top: 32px;
+}
+
+.favor_buttons {
+  display: flex;
+  flex-direction: row;
+  margin-left: 32px;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}

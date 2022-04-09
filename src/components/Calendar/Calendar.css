@@ -1,0 +1,107 @@
+.calendar {
+  background-color: rgb(163, 191, 228);
+  width: 389px;
+  height: 420px;
+  box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+}
+
+.calendar__header {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 8px;
+    padding-top: 32px;
+    background-color: rgb(194, 241, 227);
+}
+
+.calendar__but {
+  display: block;
+  padding: 5px;
+  border: 0;
+  background-color: rgb(194, 241, 227);
+  margin-left: 32px;
+}
+
+.calendar__but-down {
+  margin-left: 105px;
+}
+
+.calendar__arrow-up {
+  transform: rotate(180deg);
+}
+
+.calendar__select-mon {
+  background-color: rgb(194, 241, 227);
+	-moz-appearance: none;
+	-webkit-appearance: none;
+  border: 0;
+  padding: 0;
+  margin-left: 32px;
+  font-family: 'Aktiv Grotesk Corp';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+}
+.calendar__select-mon::-ms-expand {
+	display: none;
+}
+
+.calendar__select-year {
+  background-color: rgb(194, 241, 227);
+  border: 0;
+  padding: 0;
+  font-family: 'Aktiv Grotesk Corp';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  margin-left: -15px;
+}
+
+.calendar header button,
+.calendar header select {
+    /*margin: 0 4px;*/
+}
+
+.calendar table {
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: auto;
+}
+
+.calendar th {
+    vertical-align: middle;
+    text-align: center;
+    height: 36px;
+}
+
+.calendar .day {
+    padding: 4px 8px;
+    vertical-align: middle;
+    text-align: center;
+    border: 2px solid transparent;
+}
+
+.calendar .day:hover {
+    background-color: #eaeaea;
+    cursor: pointer;
+}
+
+.calendar .day.selected {
+    border: 2px solid dodgerblue;
+}
+
+.calendar .day.today {
+    background-color: dodgerblue;
+    color: white;
+}
+
+.calendar .day.today:hover {
+    background-color: #0081ff;
+}
+
+.calendar .day.today.selected {
+    border: 2px solid lightgray;
+}
