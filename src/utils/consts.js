@@ -1,6 +1,44 @@
+export const pageWithHotels = 'https://engine.hotellook.com/api/v2/cache.json?location='
+//export const pageWithHotels = '/api/v2/cache.json?location='
+//export const pageWithHotels = 'http://localhost:3001/'
+//export const pageWithHotels = ''
+export const secondArg = '&currency=rub&checkIn='
+export const thirdArg = '&checkOut='
+const numNeedHotels = 10  // это количество отелей которое будет получено из запроса
+export const fourArg = '&limit='+numNeedHotels
 const DAYS_IN_WEEK = 7;
 
 const DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+export const daysInM = {
+  '01': 31,
+  '02': 28,
+  '03': 31,
+  '04': 30,
+  '05': 31,
+  '06': 30,
+  '07': 30,
+  '08': 31,
+  '09': 30,
+  '10': 31,
+  '11': 30,
+  '12': 31
+}
+
+export const daysInMtypeNum = {
+  1: 31,
+  2: 28,
+  3: 31,
+  4: 30,
+  5: 31,
+  6: 30,
+  7: 30,
+  8: 31,
+  9: 30,
+  10: 31,
+  11: 30,
+  12: 31
+}
 
 const WEEK_DAYS_FROM_MONDAY = [6, 0, 1, 2, 3, 4, 5];
 
@@ -17,7 +55,7 @@ const Month = {
     October: 9,
     Novermber: 10,
     December: 11
-};
+}
 
 export function areEqual(a, b) {
     if (!a || !b) return false;
@@ -37,7 +75,7 @@ export function getDaysInMonth(date) {
     const month = date.getMonth();
     const year = date.getFullYear();
     const daysInMonth = DAYS_IN_MONTH[month];
-    
+
     if (isLeapYear(year) && month === Month.February) {
         return daysInMonth + 1;
     } else {
@@ -60,7 +98,7 @@ export function getMonthData(year, month) {
 
     for (let i = 0; i < (daysInMonth + monthStartsOn) / DAYS_IN_WEEK; i++) {
         result[i] = [];
-        
+
         for (let j = 0; j < DAYS_IN_WEEK; j++) {
             if ((i === 0 && j < monthStartsOn) || day > daysInMonth) {
                 result[i][j] = undefined;

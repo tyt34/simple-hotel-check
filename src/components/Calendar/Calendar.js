@@ -52,14 +52,40 @@ export default class Calendar extends React.Component {
         const month = this.monthSelect.value;
 
         const date = new Date(year, month);
-
+        //const date = '10, 20, 20020'
         this.setState({ date });
     };
 
-    handleDayClick = date => {
-        this.setState({ selectedDate: date });
 
-        this.props.onChange(date);
+
+    handleDayClick = date => {
+      const getAlterMonth = (text) => {
+        //console.log(text)
+        if (text === 'Jan') return '01'
+        if (text === 'Feb') return '02'
+        if (text === 'Mar') return '03'
+        if (text === 'Apr') return '04'
+        if (text === 'May') return '05'
+        if (text === 'Jun') return '06'
+        if (text === 'Jul') return '07'
+        if (text === 'Aug') return '08'
+        if (text === 'Sep') return '09'
+        if (text === 'Oct') return '10'
+        if (text === 'Nov') return '11'
+        if (text === 'Dec') return '12'
+      }
+      let alterDate = date.toString().split(' ')
+      console.log(' ---> ', alterDate[2]+'.'+getAlterMonth(alterDate[1])+'.'+alterDate[3])
+      this.setState({ selectedDate: date })
+
+      this.props.onChange(date)
+      this.props.setDate(alterDate[2]+'.'+getAlterMonth(alterDate[1])+'.'+alterDate[3])
+
+      //console.log(' --> ', this.year)
+      //console.log(' --> ', this.month)
+      //console.log(' --> ', this.day)
+      //console.log(' -> ', Date.parse(date))
+      this.props.setOpenCalend(false)
     };
 
     render() {
