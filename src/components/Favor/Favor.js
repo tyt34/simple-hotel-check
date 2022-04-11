@@ -24,11 +24,57 @@ function Favor(props) {
   }
 
   useEffect( () => {
+    let arrSort = props.favorHotels
     if (choise === 'rateUp') {
-      let arrSort = props.favorHotels
-      console.log(arrSort)
+      arrSort.sort(sortRateUp)
     }
-  }, [choise, props.favorHotels])
+    if (choise === 'rateDown') {
+      arrSort.sort(sortRateDown)
+    }
+    if (choise === 'costUp') {
+      arrSort.sort(sortCostUp)
+    }
+    if (choise === 'costDown') {
+      arrSort.sort(sortCostDown)
+    }
+    props.setFavorHotels([...arrSort])
+  }, [choise, props.favorHotels.length])
+
+  function sortCostUp(a, b) {
+    if (a.priceAvg < b.priceAvg) {
+      return -1;
+    }
+    if (a.priceAvg > b.priceAvg) {
+      return 1;
+    }
+  }
+  
+  function sortCostDown(a, b) {
+    if (a.priceAvg < b.priceAvg) {
+      return 1;
+    }
+    if (a.priceAvg > b.priceAvg) {
+      return -1;
+    }
+  }
+
+  function sortRateUp(a, b) {
+    if (a.stars < b.stars) {
+      return -1;
+    }
+    if (a.stars > b.stars) {
+      return 1;
+    }
+  }
+
+  function sortRateDown(a, b) {
+    if (a.stars < b.stars) {
+      return 1;
+    }
+    if (a.stars > b.stars) {
+      return -1;
+    }
+  }
 
   return (
     <>
