@@ -3,8 +3,19 @@ import './Result.css'
 import arrowSearch from "../../images/arrowSearch.svg"
 import Slider from '../Slider/Slider'
 import List from '../List/List'
+import {
+  nameMonths,
+} from '../../utils/consts.js'
 
 function Result(props) {
+
+  function getTitleDate() {
+    //console.log(props.dateTitle)
+    if (props.dateTitle) {
+      const d = props.dateTitle.split('.')
+      return d[0]+' '+nameMonths[d[1]]+' '+d[2]
+    }
+  }
 
   return (
     <>
@@ -13,14 +24,13 @@ function Result(props) {
           <p className="result__title">
             Отели
           </p>
-          <img className="result__img" src={arrowSearch}/>
+          <img className="result__img" alt="стрелка" src={arrowSearch}/>
           <p className="result__city">
-            Москва
+            {props.cityTitle}
           </p>
           <p className="result__date">
-            09 апреля 2022
+            {getTitleDate()}
           </p>
-
         </section>
 
         <Slider />
@@ -35,7 +45,14 @@ function Result(props) {
 
         <List
           maxHotels={5}
+          hotels={props.hotels}
           location={'result'}
+          cityTitle={props.cityTitle}
+          dateTitle={getTitleDate()}
+          daysTitle={props.daysTitle}
+
+          favorHotels={props.favorHotels}
+          setFavorHotels={props.setFavorHotels}
         />
 
       </section>

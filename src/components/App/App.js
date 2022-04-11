@@ -6,11 +6,7 @@ import Calendar from '../Calendar/Calendar'
 function App() {
   return (
     <Main />
-
   );
 }
 
 export default App;
-/*
-<Calendar />
-*/

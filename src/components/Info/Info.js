@@ -1,17 +1,41 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Info.css'
 import calendarIco from '../../images/calendar.svg'
 import Calendar from '../Calendar/Calendar'
 import {
-  getHotels,
+  getHotels, rewriteNumber
 } from '../../utils/hotelApi.js'
+import {
+  nameMonths,
+} from '../../utils/consts.js'
 
-function Info() {
+function Info(props) {
   const [dateFromCalendar, setDateFromCalendar] = useState(new Date())
   const [openCalend, setOpenCalend] = useState(false)
   const [place, setPlace] = useState('')
   const [date, setDate] = useState('')
   const [days, setDays] = useState('')
+
+  useEffect( () => {
+    setPlace('Москва')
+    setDays(1)
+    props.setCityTitle('Москва')
+    const now = new Date()
+    props.setDateTitle(now.getDate() + '.' + rewriteNumber(now.getMonth()+1) + '.' + now.getFullYear())
+    setDate(now.getDate() + '.' + rewriteNumber(now.getMonth()+1) + '.' + now.getFullYear())
+
+    getHotels('Москва', now.getDate() + '.' + rewriteNumber(now.getMonth()+1) + '.' + now.getFullYear(), 1)
+    .then( res => {
+      if (res.status !== 'error') {
+        props.setDaysTitle('1')
+        props.setHotels(res)
+      }
+    })
+    .catch( e => {
+      console.log(' er2 ', e)
+    })
+
+  }, [])
 
   //console.log(dateFromCalendar)
 
@@ -55,16 +79,21 @@ function Info() {
 
   function handleSearch() {
     console.log(' p/de/ds ', place, '/', date, '/', days)
-    getHotels(place, date, days)
-
-    .then( res => {
-      console.log(res)
-      //return res.json
-    })
-    .catch( e => {
-      console.log(' er1 ', e)
-    })
-
+    if ((place !== '') && (date !== '') && (days !== '')) {
+      getHotels(place, date, days)
+      .then( res => {
+        //console.log(res.status)
+        if (res.status !== 'error') {
+          props.setCityTitle(place)
+          props.setDateTitle(date)
+          props.setDaysTitle(days)
+          props.setHotels(res)
+        }
+      })
+      .catch( e => {
+        console.log(' er1 ', e)
+      })
+    }
   }
 
   return (
@@ -81,8 +110,6 @@ function Info() {
           maxLength="30"
           value={place}
           onChange={handleChangePlace}
-
-          required
         />
 
         <p className="info__title">
@@ -97,7 +124,6 @@ function Info() {
           value={date}
           onChange={handleChangeDate}
           onKeyDown={handleKeyDown}
-          required
         />
         <button
           className="info__calendar-but"
@@ -119,7 +145,6 @@ function Info() {
             )
         }
 
-
         <p className="info__title">
           Количество дней
         </p>
@@ -131,8 +156,6 @@ function Info() {
           maxLength="30"
           value={days}
           onChange={handleChangeDays}
-
-          required
         />
 
         <button
@@ -147,8 +170,3 @@ function Info() {
 }
 
 export default Info
-/*
-type={props.typeInput}
-value={props.value}
-onChange={props.onChange}
-*/
