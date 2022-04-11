@@ -1,13 +1,34 @@
 import './Favor.css'
 import Sort from '../Sort/Sort'
 import List from '../List/List'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 function Favor(props) {
   //console.log(props.favorHotels)
   const [choise, setChoise] = useState('rateUp') // варианты ['rateUp', 'rateDown', 'costUp', 'costDown']
 
-  //handleChoiseClick
+  function handleChoiseClick(type) {
+    if (type === 'Рейтинг') {
+      if (choise === 'rateUp') {
+        setChoise('rateDown')
+      } else {
+        setChoise('rateUp')
+      }
+    } else {
+      if (choise === 'costUp') {
+        setChoise('costDown')
+      } else {
+        setChoise('costUp')
+      }
+    }
+  }
+
+  useEffect( () => {
+    if (choise === 'rateUp') {
+      let arrSort = props.favorHotels
+      console.log(arrSort)
+    }
+  }, [choise, props.favorHotels])
 
   return (
     <>
@@ -19,11 +40,13 @@ function Favor(props) {
             title="Рейтинг"
             choise={choise}
             setChoise={setChoise}
+            onClick={handleChoiseClick}
           />
           <Sort
             title="Цена"
             choise={choise}
             setChoise={setChoise}
+            onClick={handleChoiseClick}
           />
         </section>
 
