@@ -2,6 +2,7 @@ import React from 'react'
 import './Result.css'
 import arrowSearch from "../../images/arrowSearch.svg"
 import Slider from '../Slider/Slider'
+import Carusel from '../Carusel/Carusel'
 import List from '../List/List'
 import {
   nameMonths,
@@ -33,7 +34,7 @@ function Result(props) {
           </p>
         </section>
 
-        <Slider />
+        <Carusel />
 
         <section className="result__favor">
           Добавлено в Избранное:
