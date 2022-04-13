@@ -1,4 +1,4 @@
-**Приложение по поиску отелей**
+# Приложение по поиску отелей
 
 ![](https://shields.io/badge/-HTML-orange)
 ![](https://shields.io/badge/-CSS-blue)
