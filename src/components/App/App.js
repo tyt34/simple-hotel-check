@@ -1,11 +1,11 @@
 import './App.css';
 import Main from '../Main/Main'
 import Auth from '../Auth/Auth'
-import { HashRouter, Routes, Route, Switch} from 'react-router-dom'
+import { HashRouter, Routes, Route} from 'react-router-dom'
 ///simple-hotel-check
 function App() {
   return (
-    <HashRouter basename='/simple-hotel-check'>
+    <HashRouter basename=''>
         <Routes>
           <Route path="/" element={
             <>
