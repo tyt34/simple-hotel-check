@@ -5,13 +5,15 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom'
 
 function App() {
   return (
-    <BrowserRouter basename='/simple-hotel-check'>
+    <BrowserRouter basename=''>
         <Routes>
           <Route path="/main" element={
             <>
               <Main/>
             </>
           } />
+        </Routes>
+        <Routes>
           <Route path="/auth" element={
             <>
               <Auth/>
