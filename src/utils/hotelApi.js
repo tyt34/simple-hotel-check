@@ -9,7 +9,6 @@ import {
 
 
 export const getHotels = (loc, date, days) => {
-  console.log(pageWithHotels+loc+secondArg+rewriteDate(date)+thirdArg+rewriteDays(days, date)+fourArg)
   return fetch(pageWithHotels+loc+secondArg+rewriteDate(date)+thirdArg+rewriteDays(days, date)+fourArg, {
     method: 'GET',
   })
