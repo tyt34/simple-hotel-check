@@ -12,8 +12,6 @@ function App() {
               <Main/>
             </>
           } />
-        </Routes>
-        <Routes>
           <Route path="/auth" element={
             <>
               <Auth/>
