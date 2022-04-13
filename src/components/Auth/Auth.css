@@ -1,0 +1,106 @@
+.auth {
+  display: flex;
+  width: 1440px;
+  height: 1024px;
+  background: url('../../images/auth.png') no-repeat;
+  background-size: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.auth__blur {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  width: 1440px;
+  height: 1024px;
+}
+
+.auth__panel {
+  display: flex;
+  flex-direction: column;
+  width: 409px;
+  height: 382px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 33px rgba(0, 0, 0, 0.04);
+  border-radius: 16px;
+  margin-top: 321px;
+}
+
+.auth__title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 28px;
+  align-items: center;
+  text-align: center;
+  color: #424242;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 32px;
+}
+
+.auth__name-input {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #424242;
+  margin-top: 32px;
+  margin-left: 32px;
+}
+
+.auth__name-input:nth-child(5) {
+  margin-top: 12px;
+}
+
+.auth__input {
+  background: #FFFFFF;
+  border: 1px solid #C9CACC;
+  box-sizing: border-box;
+  border-radius: 4px;
+  width: 345px;
+  height: 50px;
+  padding: 15px;
+  margin-left: 32px;
+  margin-top: 7px;
+}
+
+.auth__enter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 345px;
+  height: 50px;
+  margin-left: 32px;
+  margin-top: 18px;
+  background: linear-gradient(104.34deg, #41522E -15.34%, #BE8022 145.95%);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+.auth__button-title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #FFFFFF;
+}
+
+.auth__error {
+  height: 7px;
+  color: red;
+  font-size: 14px;
+  opacity: 0.6;
+  margin-top: 7px;
+  margin-left: 32px;
+}
+
+.auth__enter-disabled {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), linear-gradient(104.34deg, #41522E -15.34%, #BE8022 145.95%);
+}

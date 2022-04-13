@@ -1,15 +1,15 @@
 export const pageWithHotels = 'https://engine.hotellook.com/api/v2/cache.json?location='
-//export const pageWithHotels = '/api/v2/cache.json?location='
-//export const pageWithHotels = 'http://localhost:3001/'
-//export const pageWithHotels = ''
 export const secondArg = '&currency=rub&checkIn='
 export const thirdArg = '&checkOut='
 const numNeedHotels = 10  // это количество отелей которое будет получено из запроса
 export const fourArg = '&limit='+numNeedHotels
+export const trueEasyPass = /[a-zA-Z0-9]{8,}/
+export const trueEmail = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/
+// источник регулярного выражения
+// https://stackoverflow.com/questions/46155/whats-the-best-way-to-validate-an-email-address-in-javascript
+
 const DAYS_IN_WEEK = 7;
-
 const DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
 export const daysInM = {
   '01': 31,
   '02': 28,
@@ -24,7 +24,6 @@ export const daysInM = {
   '11': 30,
   '12': 31
 }
-
 export const daysInMtypeNum = {
   1: 31,
   2: 28,
@@ -39,7 +38,6 @@ export const daysInMtypeNum = {
   11: 30,
   12: 31
 }
-
 export const nameMonths = {
   '01': 'января',
   '02': 'февраля',
@@ -54,74 +52,67 @@ export const nameMonths = {
   '11': 'ноября',
   '12': 'декабря'
 }
-
 const WEEK_DAYS_FROM_MONDAY = [6, 0, 1, 2, 3, 4, 5];
-
 const Month = {
-    January: 0,
-    February: 1,
-    March: 2,
-    April: 3,
-    May: 4,
-    June: 5,
-    July: 6,
-    August: 7,
-    September: 8,
-    October: 9,
-    Novermber: 10,
-    December: 11
+  January: 0,
+  February: 1,
+  March: 2,
+  April: 3,
+  May: 4,
+  June: 5,
+  July: 6,
+  August: 7,
+  September: 8,
+  October: 9,
+  Novermber: 10,
+  December: 11
 }
-
 export function areEqual(a, b) {
-    if (!a || !b) return false;
+  if (!a || !b) return false;
 
-    return (
-        a.getFullYear() === b.getFullYear() &&
-        a.getMonth() === b.getMonth() &&
-        a.getDate() === b.getDate()
-    );
+  return (
+      a.getFullYear() === b.getFullYear() &&
+      a.getMonth() === b.getMonth() &&
+      a.getDate() === b.getDate()
+  );
 }
-
 export function isLeapYear(year) {
-    return !((year % 4) || (!(year % 100) && (year % 400)));
+  return !((year % 4) || (!(year % 100) && (year % 400)));
 }
-
 export function getDaysInMonth(date) {
-    const month = date.getMonth();
-    const year = date.getFullYear();
-    const daysInMonth = DAYS_IN_MONTH[month];
+  const month = date.getMonth();
+  const year = date.getFullYear();
+  const daysInMonth = DAYS_IN_MONTH[month];
 
-    if (isLeapYear(year) && month === Month.February) {
-        return daysInMonth + 1;
-    } else {
-        return daysInMonth;
-    }
+  if (isLeapYear(year) && month === Month.February) {
+      return daysInMonth + 1;
+  } else {
+      return daysInMonth;
+  }
 }
-
 export function getDayOfWeek(date) {
-    const dayOfWeek = date.getDay();
+  const dayOfWeek = date.getDay();
 
-    return WEEK_DAYS_FROM_MONDAY[dayOfWeek];
+  return WEEK_DAYS_FROM_MONDAY[dayOfWeek];
 }
-
 export function getMonthData(year, month) {
-    const result = [];
-    const date = new Date(year, month);
-    const daysInMonth = getDaysInMonth(date);
-    const monthStartsOn = getDayOfWeek(date);
-    let day = 1;
+  const result = [];
+  const date = new Date(year, month);
+  const daysInMonth = getDaysInMonth(date);
+  const monthStartsOn = getDayOfWeek(date);
+  let day = 1;
 
-    for (let i = 0; i < (daysInMonth + monthStartsOn) / DAYS_IN_WEEK; i++) {
-        result[i] = [];
+  for (let i = 0; i < (daysInMonth + monthStartsOn) / DAYS_IN_WEEK; i++) {
+      result[i] = [];
 
-        for (let j = 0; j < DAYS_IN_WEEK; j++) {
-            if ((i === 0 && j < monthStartsOn) || day > daysInMonth) {
-                result[i][j] = undefined;
-            } else {
-                result[i][j] = new Date(year, month, day++);
-            }
-        }
-    }
+      for (let j = 0; j < DAYS_IN_WEEK; j++) {
+          if ((i === 0 && j < monthStartsOn) || day > daysInMonth) {
+              result[i][j] = undefined;
+          } else {
+              result[i][j] = new Date(year, month, day++);
+          }
+      }
+  }
 
-    return result;
+  return result;
 }
