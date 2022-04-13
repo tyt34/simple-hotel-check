@@ -1,5 +1,5 @@
 {
-  "name": "Simple Hotel Check",
+  "name": "simple-hotel-check",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://engine.hotellook.com/",
