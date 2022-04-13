@@ -48,35 +48,3 @@ function Search() {
 }
 
 export default Search
-/*
-
-let arr = [
-  {
-    hotelId: 4,
-    hotelName: 'Отель Бурый',
-    priceAvg: 12564,
-    stars: 5,
-    date: '27 мая 2023',
-    days: 1,
-    favor: true,
-  },
-  {
-    hotelId: 5,
-    hotelName: 'Отель Оранжевый',
-    priceAvg: 12564,
-    stars: 2,
-    date: '27 мая 2023',
-    days: 1,
-    favor: true,
-  },
-  {
-    hotelId: 6,
-    hotelName: 'Отель обычный',
-    priceAvg: 12564,
-    stars: 3,
-    date: '27 мая 2023',
-    days: 1,
-    favor: true,
-  }
-]
-*/

@@ -81,11 +81,6 @@
   padding: 12px;
   margin-left: 288px;
   margin-top: -32px;
-  /*
-    в адаптивном дизайне такое врядли прокатит
-    но там можно было бы скрипт написать,
-    который высчитывает идеальное положение
-  */
   cursor: pointer;
   background-color:transparent;
 }

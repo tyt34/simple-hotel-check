@@ -52,7 +52,6 @@ export default class Calendar extends React.Component {
         const month = this.monthSelect.value;
 
         const date = new Date(year, month);
-        //const date = '10, 20, 20020'
         this.setState({ date });
     };
 
@@ -60,7 +59,6 @@ export default class Calendar extends React.Component {
 
     handleDayClick = date => {
       const getAlterMonth = (text) => {
-        //console.log(text)
         if (text === 'Jan') return '01'
         if (text === 'Feb') return '02'
         if (text === 'Mar') return '03'
@@ -81,10 +79,6 @@ export default class Calendar extends React.Component {
       this.props.onChange(date)
       this.props.setDate(alterDate[2]+'.'+getAlterMonth(alterDate[1])+'.'+alterDate[3])
 
-      //console.log(' --> ', this.year)
-      //console.log(' --> ', this.month)
-      //console.log(' --> ', this.day)
-      //console.log(' -> ', Date.parse(date))
       this.props.setOpenCalend(false)
     };
 
@@ -169,31 +163,3 @@ export default class Calendar extends React.Component {
       )
     }
 }
-
-/*
-<header className="calendar__header">
-    <button onClick={this.handlePrevMonthButtonClick}>{'<'}</button>
-
-    <select
-        ref={element => this.monthSelect = element}
-        value={this.month}
-        onChange={this.handleSelectChange}
-    >
-        {monthNames.map((name, index) =>
-            <option key={name} value={index}>{name}</option>
-        )}
-    </select>
-
-    <select
-        ref={element => this.yearSelect = element}
-        value={this.year}
-        onChange={this.handleSelectChange}
-    >
-        {years.map(year =>
-            <option key={year} value={year}>{year}</option>
-        )}
-    </select>
-
-    <button onClick={this.handleNextMonthButtonClick}>{'>'}</button>
-</header>
-*/

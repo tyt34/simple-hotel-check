@@ -4,7 +4,6 @@ import List from '../List/List'
 import React, { useState, useEffect } from 'react'
 
 function Favor(props) {
-  //console.log(props.favorHotels)
   const [choise, setChoise] = useState('rateUp') // варианты ['rateUp', 'rateDown', 'costUp', 'costDown']
 
   function handleChoiseClick(type) {
@@ -48,7 +47,7 @@ function Favor(props) {
       return 1;
     }
   }
-  
+
   function sortCostDown(a, b) {
     if (a.priceAvg < b.priceAvg) {
       return 1;
@@ -110,20 +109,3 @@ function Favor(props) {
 }
 
 export default Favor
-
-/*
-<Hotel
-  location={props.location}
-  key={el.hotelId}
-  hotelId={el.hotelId}
-  hotelName={el.hotelName}
-  priceAvg={el.priceAvg}
-  stars={getStart(el.stars)}
-  dateTitle={props.dateTitle}
-  daysTitle={props.daysTitle}
-  favor={false}
-
-  favorHotels={props.favorHotels}
-  setFavorHotels={props.setFavorHotels}
-/>
-*/

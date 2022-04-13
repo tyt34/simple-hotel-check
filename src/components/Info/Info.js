@@ -37,16 +37,12 @@ function Info(props) {
 
   }, [])
 
-  //console.log(dateFromCalendar)
-
   function handleCalendar() {
-    //console.log(' -> ', value)
     setOpenCalend(!openCalend)
     console.log(dateFromCalendar)
   }
 
   function handleChangePlace(e) {
-    //console.log(place)
     setPlace(e.target.value)
   }
 
@@ -73,7 +69,6 @@ function Info(props) {
   }
 
   function handleChangeDays(e) {
-    //console.log(days)
     setDays(e.target.value)
   }
 
@@ -82,7 +77,6 @@ function Info(props) {
     if ((place !== '') && (date !== '') && (days !== '')) {
       getHotels(place, date, days)
       .then( res => {
-        //console.log(res.status)
         if (res.status !== 'error') {
           props.setCityTitle(place)
           props.setDateTitle(date)
@@ -169,7 +163,7 @@ function Info(props) {
   )
 }
 /*
-блин тут кнопка должна быть привязана к инпутам, а я по тупому сделал 
+тут должна была быть форма, но её нет. Но будет. 
 */
 
 export default Info

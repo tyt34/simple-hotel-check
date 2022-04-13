@@ -1,9 +1,15 @@
 import React from 'react'
 import './Main.css'
+import { useNavigate} from 'react-router-dom'
 import imgExit from "../../images/exit.svg"
 import Search from '../Search/Search'
 
 function Main() {
+  const navigate = useNavigate()
+  function handleClickExit(e) {
+    e.preventDefault()
+    navigate('/auth')
+  }
 
   return (
     <>
@@ -15,6 +21,7 @@ function Main() {
 
           <button
             className="roof__but"
+            onClick={handleClickExit}
           >
             <p className="roof__title"> Выйти </p>
             <img

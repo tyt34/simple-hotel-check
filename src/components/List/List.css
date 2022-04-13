@@ -15,7 +15,6 @@
 
 .list::-webkit-scrollbar {
   width: 2px;
-  /*background-color: red;*/
   background: #E7E7E7;
 }
 

@@ -28,25 +28,15 @@ function Carusel(props) {
 
   useEffect(() => {
     let timer = setInterval(() => {
-      //console.log(' now n1: ', imgLeft)
       setImgLeft(nextNum(imgLeft))
       setImgMid(nextNum(imgMid))
       setImgRig(nextNum(imgRig))
-    //}, 2561)
-  }, 6666)
+    }, 2561)
+  //}, 6666)
 
     return () => clearInterval(timer)
   }, [imgLeft]);
-  /*
-  useEffect(() => {
-    let timerWheel = setInterval(() => {
-      console.log(' -> ')
-      disableScroll.off();
-    }, 500)
 
-    return () => clearInterval(timerWheel)
-  }, []);
-  */
   function nextNum(num) {
     let newNum = num + 1
     if (newNum > items.length-1) {
@@ -104,7 +94,11 @@ function Carusel(props) {
       </section>
     </>
   )
-
 }
 
 export default Carusel
+/*
+onMouseEnter={(e) => {disableScroll.on()}}
+onMouseLeave={(e) => {disableScroll.off()}}
+чтобы страница не прокручивалась при наведение на компонент карусель
+*/

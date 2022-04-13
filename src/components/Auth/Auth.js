@@ -1,11 +1,13 @@
 import './Auth.css'
 import React, { useState, useEffect } from 'react'
+import { useNavigate} from 'react-router-dom'
 import {
   trueEasyPass,
   trueEmail
 } from '../../utils/consts.js'
 
 function Auth() {
+  const navigate = useNavigate()
   const [button, setButton] = React.useState(false)
   const [identifier, setIdentifier] = useState('') // логин
   const [pass, setPass] = useState('')
@@ -20,13 +22,15 @@ function Auth() {
         setErrIdentifier('')
       }
       if (!trueEasyPass.test(pass)) {
-        console.log('1', pass)
         setErrPass('Только латинские буквы и цифры. Min 8 символов.')
       } else if (trueEasyPass.test(pass)) {
-        console.log('2', pass)
         setErrPass('')
       }
-
+      if (errIdentifier === '' && errPass === '') {
+        setButton(true)
+      } else {
+        setButton(false)
+      }
     } else {
       setButton(false)
     }
@@ -50,8 +54,8 @@ function Auth() {
 
   function handleClickEnter(e) {
     e.preventDefault()
-    console.log(' => ')
-}
+    navigate('/')
+  }
 
   return (
     <>
@@ -125,14 +129,3 @@ function Auth() {
 }
 
 export default Auth
-/*
-<input
-  id={`inputCity`}
-  className="info__input"
-  name="city"
-  minLength="1"
-  maxLength="30"
-  value={place}
-  onChange={handleChangePlace}
-/>
-*/

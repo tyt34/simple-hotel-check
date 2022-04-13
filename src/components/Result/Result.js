@@ -1,7 +1,6 @@
 import React from 'react'
 import './Result.css'
 import arrowSearch from "../../images/arrowSearch.svg"
-import Slider from '../Slider/Slider'
 import Carusel from '../Carusel/Carusel'
 import List from '../List/List'
 import {
@@ -10,7 +9,6 @@ import {
 
 function Result(props) {
   function getTitleDate() {
-    //console.log(props.dateTitle)
     if (props.dateTitle) {
       const d = props.dateTitle.split('.')
       return d[0]+' '+nameMonths[d[1]]+' '+d[2]

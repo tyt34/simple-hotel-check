@@ -103,7 +103,6 @@ function Hotel(props) {
     if (props.favor === false) setIsLike(false)
   }, [props.favor])
 
-
   function rewritePrice() {
     let arrBase = props.priceAvg.toString().split('.')
     let arrSecond = arrBase[0].toString().split('')
@@ -223,10 +222,10 @@ function Hotel(props) {
     </>
   )
 }
-/*
-(props.location === 'result') && (props.hotels[props.hotels.length-1].hotelId !== props.hotelId) ?
-  удаление линии у последнего отеля из категории избранное
-*/
-
 
 export default Hotel
+
+/*
+(props.location === 'result') && (props.hotels[props.hotels.length-1].hotelId !== props.hotelId) ?
+удаление линии у последнего отеля из категории избранное
+*/
