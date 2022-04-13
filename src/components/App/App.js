@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom'
 
 function App() {
   return (
-    <BrowserRouter basename={process.env.PUBLICK_URL}>
+    <BrowserRouter basename='/simple-hotel-check'>
         <Routes>
           <Route path="/main" element={
             <>
