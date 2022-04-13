@@ -2,10 +2,17 @@ import './App.css';
 import Main from '../Main/Main'
 import Auth from '../Auth/Auth'
 import { HashRouter, Routes, Route} from 'react-router-dom'
-///simple-hotel-check
+const BASENAME = process.env.REACT_APP_BASENAME
+let base
+if (BASENAME === undefined) {
+  base = '/simple-hotel-check'
+} else {
+  base = BASENAME
+}
+
 function App() {
   return (
-    <HashRouter basename='/simple-hotel-check'>
+    <HashRouter basename={base}>
         <Routes>
           <Route path="/" element={
             <>
