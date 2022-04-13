@@ -73,7 +73,6 @@ export default class Calendar extends React.Component {
         if (text === 'Dec') return '12'
       }
       let alterDate = date.toString().split(' ')
-      console.log(' ---> ', alterDate[2]+'.'+getAlterMonth(alterDate[1])+'.'+alterDate[3])
       this.setState({ selectedDate: date })
 
       this.props.onChange(date)

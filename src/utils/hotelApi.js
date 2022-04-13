@@ -43,7 +43,6 @@ function countMonths(dayLeft, startMonth, num, startYear) {
   if (startMonth === 2) {
     leapYear(startYear)
     if (leapYear(startYear)) {
-      console.log(' высокосный ')
       dayInThisMon = daysInMtypeNum[startMonth] + 1
     } else {
       dayInThisMon = daysInMtypeNum[startMonth]

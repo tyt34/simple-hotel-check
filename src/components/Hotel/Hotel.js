@@ -12,12 +12,6 @@ const fourSpace = "\u00A0\u00A0\u00A0\u00A0"
 const doubleSpace = "\u00A0\u00A0\u00A0\u00A0"
 
 function Hotel(props) {
-  if (props.location === 'favor') {
-    console.log(props.hotels[props.hotels.length-1].hotelId === props.hotelId)
-    console.log(props)
-    console.log(((props.location === 'result') && (props.hotels[props.hotels.length-1].hotelId !== props.hotelId)))
-  }
-
   const [isLike, setIsLike] = useState(props.favor)
 
   function getDaysHotel() {

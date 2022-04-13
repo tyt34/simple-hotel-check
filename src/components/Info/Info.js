@@ -39,7 +39,6 @@ function Info(props) {
 
   function handleCalendar() {
     setOpenCalend(!openCalend)
-    console.log(dateFromCalendar)
   }
 
   function handleChangePlace(e) {
@@ -73,7 +72,6 @@ function Info(props) {
   }
 
   function handleSearch() {
-    console.log(' p/de/ds ', place, '/', date, '/', days)
     if ((place !== '') && (date !== '') && (days !== '')) {
       getHotels(place, date, days)
       .then( res => {
@@ -163,7 +161,7 @@ function Info(props) {
   )
 }
 /*
-тут должна была быть форма, но её нет. Но будет. 
+тут должна была быть форма, но её нет. Но будет.
 */
 
 export default Info
