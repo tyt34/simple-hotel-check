@@ -32,8 +32,8 @@ function Carusel(props) {
       setImgLeft(nextNum(imgLeft))
       setImgMid(nextNum(imgMid))
       setImgRig(nextNum(imgRig))
-    }, 2561)
-  //}, 6666)
+    //}, 2561)
+  }, 6666)
 
     return () => clearInterval(timer)
   }, [imgLeft]);

@@ -1,7 +1,7 @@
 .main {
   width: 1441px;
   height: 1024px;
-  background-color: #E5E5E5;
+  background-color: #F4F4F4;
   margin-left: auto;
   margin-right: auto;
 }
@@ -29,11 +29,11 @@
   height: 34px;
   padding: 0;
   align-items: center;
-  margin-right: 32px;
-  margin-top: 34px;
+  margin-right: 33px;
+  margin-top: 30px;
   border: 0;
   cursor: pointer;
-  background-color: #E5E5E5;
+  background-color: #F4F4F4;
 }
 
 .roof__title {

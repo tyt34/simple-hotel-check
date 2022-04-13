@@ -5,10 +5,43 @@ import fullStar from '../../images/star-full.svg'
 import star from '../../images/star.svg'
 import like from '../../images/like.svg'
 import fullLike from '../../images/like-full.svg'
-
+import {
+  rusMonthToEn
+} from '../../utils/consts.js'
+const fourSpace = "\u00A0\u00A0\u00A0\u00A0"
+const doubleSpace = "\u00A0\u00A0\u00A0\u00A0"
 
 function Hotel(props) {
+  if (props.location === 'favor') {
+    console.log(props.hotels[props.hotels.length-1].hotelId === props.hotelId)
+    console.log(props)
+    console.log(((props.location === 'result') && (props.hotels[props.hotels.length-1].hotelId !== props.hotelId)))
+  }
+
   const [isLike, setIsLike] = useState(props.favor)
+
+  function getDaysHotel() {
+    if (Number(props.daysTitle) === 1) {
+      return doubleSpace+props.daysTitle+' день'
+    } else if ((Number(props.daysTitle) === 2) || (Number(props.daysTitle) === 3) || (Number(props.daysTitle) === 4)) {
+      return doubleSpace+props.daysTitle+' дня'
+    } else {
+      return doubleSpace+props.daysTitle+' дней'
+    }
+  }
+
+  function getDateHotel() {
+    if (props.location === 'favor') {
+      for (let key in rusMonthToEn) {
+        if (key === props.dateTitle.split(' ')[1]) {
+          return props.dateTitle.split(' ')[0]+' '+rusMonthToEn[key]+', '+props.dateTitle.split(' ')[2]+fourSpace
+        }
+      }
+      return props.dateTitle+fourSpace
+    } else {
+      return props.dateTitle+fourSpace
+    }
+  }
 
   function handleLikeClick() {
     setIsLike(!isLike)
@@ -102,7 +135,14 @@ function Hotel(props) {
         }>
           <section className="hotel__top">
             <p className="hotel__name"> {props.hotelName} </p>
-            <button className="hotel__like" onClick={handleLikeClick}>
+            <button className={
+              props.location === 'result' ?
+                (
+                  'hotel__like hotel__like-result'
+                ) : (
+                  'hotel__like'
+                )
+            } onClick={handleLikeClick}>
               {
                 isLike === true ?
                   (
@@ -121,9 +161,23 @@ function Hotel(props) {
               }
             </button>
           </section>
-          <p className="hotel__date"> {props.dateTitle} - {props.daysTitle} дней </p>
+          <p className={
+            props.location === 'result' ?
+              (
+                'hotel__date hotel__date-result'
+              ) : (
+                'hotel__date'
+              )
+          }> {getDateHotel()} — {getDaysHotel()} </p>
 
-          <section className="hotel__bot">
+          <section className={
+            props.location === 'result' ?
+              (
+                'hotel__bot hotel__bot-result'
+              ) : (
+                'hotel__bot'
+              )
+          }>
 
             <section className="hotel__stars">
               { props.stars.map( (n, i) =>
@@ -149,87 +203,30 @@ function Hotel(props) {
       </section>
 
       <div className={
-        props.location === 'result' ?
+        ((props.location === 'favor') && (props.hotels[props.hotels.length-1].hotelId !== props.hotelId)) ?
+          (
+            'hotel__line-favor'
+          ) : (
+            ''
+          )
+      }></div>
+
+      <div className={
+        (props.location === 'result') ?
           (
             'hotel__line-result'
           ) : (
-            'hotel__line-favor'
+            ''
           )
       }></div>
+
     </>
   )
 }
+/*
+(props.location === 'result') && (props.hotels[props.hotels.length-1].hotelId !== props.hotelId) ?
+  удаление линии у последнего отеля из категории избранное
+*/
+
 
 export default Hotel
-/*
-<section className="hotel__bot">
-  <section className="hotel__stars">
-    {
-      props.stars[0] === 'star' ?
-        (
-          <img className="hotel__star" alt="звезда отеля" src={fullStar}/>
-        ) : (
-          <img className="hotel__star" alt="звезда отеля" src={star}/>
-        )
-    }
-    {
-      props.stars[1] === 'star' ?
-        (
-          <img className="hotel__star" alt="звезда отеля" src={fullStar}/>
-        ) : (
-          <img className="hotel__star" alt="звезда отеля" src={star}/>
-        )
-    }
-    {
-      props.stars[2] === 'star' ?
-        (
-          <img className="hotel__star" alt="звезда отеля" src={fullStar}/>
-        ) : (
-          <img className="hotel__star" alt="звезда отеля" src={star}/>
-        )
-    }
-    {
-      props.stars[3] === 'star' ?
-        (
-          <img className="hotel__star" alt="звезда отеля" src={fullStar}/>
-        ) : (
-          <img className="hotel__star" alt="звезда отеля" src={star}/>
-        )
-    }
-    {
-      props.stars[4] === 'star' ?
-        (
-          <img className="hotel__star" alt="звезда отеля" src={fullStar}/>
-        ) : (
-          <img className="hotel__star" alt="звезда отеля" src={star}/>
-        )
-    }
-    </section>
-    */
-/*
-function handleLikeClick() {
-  setIsLike(!isLike)
-  //console.log(' что добавляем ', props)
-  //console.log(' список избранных до ', props.favorHotels)
-  const obj = {
-    location: 'favor',
-    hotelId: props.hotelId,
-    hotelName: props.hotelName,
-    priceAvg: props.priceAvg,
-    stars: props.numStars,
-    dateTitle: props.dateTitle,
-    daysTitle: props.daysTitle,
-    favor: true,
-  }
-  if (!props.favorHotels) {
-    //let arr = []
-    arr.push(obj)
-    props.setFavorHotels(arr)
-  } else { // тут нужна более лучшая логика
-    console.log(' _________---------> ')
-    props.favorHotels.push(obj)
-    props.setFavorHotels(props.favorHotels)
-  }
-  //console.log('->  список избранных после ', props.favorHotels)
-}
-*/

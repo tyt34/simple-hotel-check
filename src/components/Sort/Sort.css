@@ -2,25 +2,31 @@
   display: flex;
   height: 28px;
   cursor: pointer;
-  border: 1px solid #41522E;
+  border: 1px solid #E5E5E5;
   box-sizing: border-box;
   border-radius: 4px;
   padding: 0;
   margin-right: 8px;
+  background-color: #FFFFFF;
+  color: #99A0A3;
+}
+
+.sort-choice {
+  border: 1px solid #41522E;
+  color: #41522E;
 }
 
 .sort__title {
-  margin-left: 8px;
+  margin-left: 7px;
   margin-top: 4px;
   margin-bottom: 4px;
   font-family: 'Roboto';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 14px;
   line-height: 20px;
   /* identical to box height, or 143% */
   letter-spacing: -0.408px;
-  color: #41522E;
 }
 
 .sort__imgs {

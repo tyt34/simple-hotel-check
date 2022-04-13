@@ -6,6 +6,7 @@
   flex-direction: column;
   box-shadow: 0px 4px 33px rgba(0, 0, 0, 0.04);
   border-radius: 16px;
+  background: #FFFFFF;
 }
 
 .result__footer {
@@ -13,6 +14,8 @@
   flex-direction: row;
   margin-top: 48px;
   margin-left: 32px;
+  justify-content: space-between;
+  margin-bottom: 28px;
 }
 
 .result__title {
@@ -35,7 +38,13 @@
   font-size: 32px;
   line-height: 38px;
   color: #424242;
-  margin-left: 20px;
+  margin-left: 19px;
+}
+
+.result__info-city {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .result__date {
@@ -45,7 +54,8 @@
   font-size: 24px;
   line-height: 28px;
   color: #41522E;
-  margin-left: 100px;
+  margin-right: 32px;
+  margin-top: 4px;
 }
 
 .result__favor {

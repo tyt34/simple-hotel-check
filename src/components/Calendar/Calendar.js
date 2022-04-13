@@ -97,34 +97,41 @@ export default class Calendar extends React.Component {
       return (
         <div className="calendar">
           <header className="calendar__header">
-            <select
-              className="calendar__select-mon"
-              ref={element => this.monthSelect = element}
-              value={this.month}
-              onChange={this.handleSelectChange}
-            >
-              {monthNames.map((name, index) =>
-                <option key={name} value={index}>{name}</option>
-              )}
-            </select>
-            <select
-              className="calendar__select-year"
-              ref={element => this.yearSelect = element}
-              value={this.year}
-              onChange={this.handleSelectChange}
-            >
-              {years.map(year =>
-                <option key={year} value={year}>{year} г.</option>
-              )}
-            </select>
-            <button className="calendar__but calendar__but-down" onClick={this.handlePrevMonthButtonClick}>
-              <img className="calendar__arrow" src={arrow}/>
-            </button>
-            <button className="calendar__but" onClick={this.handleNextMonthButtonClick}>
-              <img className="calendar__arrow calendar__arrow-up" src={arrow}/>
-            </button>
+
+            <section className="calendar__selects">
+              <select
+                className="calendar__select-mon"
+                ref={element => this.monthSelect = element}
+                value={this.month}
+                onChange={this.handleSelectChange}
+              >
+                {monthNames.map((name, index) =>
+                  <option key={name} value={index}>{name}</option>
+                )}
+              </select>
+              <select
+                className="calendar__select-year"
+                ref={element => this.yearSelect = element}
+                value={this.year}
+                onChange={this.handleSelectChange}
+              >
+                {years.map(year =>
+                  <option key={year} value={year}>{year} г.</option>
+                )}
+              </select>
+            </section>
+
+            <section className="calendar__buttons">
+              <button className="calendar__but calendar__but-up" onClick={this.handlePrevMonthButtonClick}>
+                <img className="calendar__arrow calendar__arrow-up" src={arrow}/>
+              </button>
+              <button className="calendar__but" onClick={this.handleNextMonthButtonClick}>
+                <img className="calendar__arrow" src={arrow}/>
+              </button>
+            </section>
+
           </header>
-            <table>
+            <table className="calendar__table">
             <thead>
               <tr>
                 {weekDayNames.map(name =>
@@ -132,7 +139,7 @@ export default class Calendar extends React.Component {
                 )}
               </tr>
             </thead>
-            <tbody>
+            <tbody className="calendar__days">
               {monthData.map((week, index) =>
                 <tr
                   className="week"

@@ -1,7 +1,7 @@
 .carusel {
   display: flex;
   justify-content: center;
-  background-color: rgb(166, 176, 209);
+  /*background-color: rgb(166, 176, 209);*/
   width: 600px;
   height: 149px;
   margin-left: auto;

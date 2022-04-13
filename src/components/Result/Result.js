@@ -9,7 +9,6 @@ import {
 } from '../../utils/consts.js'
 
 function Result(props) {
-
   function getTitleDate() {
     //console.log(props.dateTitle)
     if (props.dateTitle) {
@@ -18,17 +17,29 @@ function Result(props) {
     }
   }
 
+  function getWordHotel() {
+    if (props.favorHotels.length === 0) {
+      return 'отелей'
+    } else if (props.favorHotels.length === 1) {
+      return 'отель'
+    } else {
+      return 'отеля'
+    }
+  }
+
   return (
     <>
       <section className="result">
         <section className="result__footer">
-          <p className="result__title">
-            Отели
-          </p>
-          <img className="result__img" alt="стрелка" src={arrowSearch}/>
-          <p className="result__city">
-            {props.cityTitle}
-          </p>
+          <section className="result__info-city">
+            <p className="result__title">
+              Отели
+            </p>
+            <img className="result__img" alt="стрелка" src={arrowSearch}/>
+            <p className="result__city">
+              {props.cityTitle}
+            </p>
+          </section>
           <p className="result__date">
             {getTitleDate()}
           </p>
@@ -39,9 +50,9 @@ function Result(props) {
         <section className="result__favor">
           Добавлено в Избранное:
             <p className="result__num">
-              {'\u00A0'}3{'\u00A0'}
+              {'\u00A0'}{props.favorHotels.length}{'\u00A0'}
             </p>
-          отеля
+          {getWordHotel()}
         </section>
 
         <List

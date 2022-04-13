@@ -2,7 +2,8 @@
   height: 529px;
   overflow-y: scroll;
   overflow-x: hidden;
-  width: 642px;
+  width: 632px;
+  margin-top: 3px;
 }
 
 .list-favor {

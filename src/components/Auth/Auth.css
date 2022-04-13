@@ -31,7 +31,7 @@
 .auth__title {
   font-family: 'Roboto';
   font-style: normal;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 24px;
   line-height: 28px;
   align-items: center;
@@ -45,7 +45,7 @@
 .auth__name-input {
   font-family: 'Roboto';
   font-style: normal;
-  font-weight: 500;
+  font-weight: 300;
   font-size: 16px;
   line-height: 19px;
   color: #424242;
@@ -67,6 +67,8 @@
   padding: 15px;
   margin-left: 32px;
   margin-top: 7px;
+
+  font-weight: 300;
 }
 
 .auth__enter {
@@ -94,9 +96,10 @@
 
 .auth__error {
   height: 7px;
+  font-weight: 300;
   color: red;
   font-size: 14px;
-  opacity: 0.6;
+  opacity: 1;
   margin-top: 7px;
   margin-left: 32px;
 }

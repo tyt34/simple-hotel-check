@@ -1,14 +1,20 @@
 import React, { useEffect } from 'react'
 import './Sort.css'
-
 import arrowSort from "../../images/arrowSort.svg"
-//<img className="calendar__arrow" src={arrow}/>
 
 function Sort(props) {
-  //console.log(props.choise)
-  //console.log(props.title)
 
-  function getClassImg(side) { // тупо перебрал все варианты 
+  function getMainClass() {
+    if ((props.title === 'Рейтинг') && (props.choise === 'rateUp' || props.choise === 'rateDown')) {
+      return 'sort sort-choice'
+    } else if ((props.title === 'Цена') && (props.choise === 'costUp' || props.choise === 'costDown')) {
+      return 'sort sort-choice'
+    } else {
+      return 'sort'
+    }
+  }
+
+  function getClassImg(side) { // тупо перебрал все варианты
     if ((side === 'up') && (props.title === 'Рейтинг')) {
       if (props.choise === 'rateUp') {
         return 'sort__img-up sort__img-opacity'
@@ -42,7 +48,7 @@ function Sort(props) {
   return (
     <>
     <button
-      className="sort"
+      className={getMainClass()}
       onClick={() => {props.onClick(props.title)}}
     >
       <p className="sort__title">
@@ -67,14 +73,3 @@ function Sort(props) {
 }
 
 export default Sort
-/*
-else if ((props.choise === 'rateDown') && (props.title === 'Рейтинг')) {
-  //console.log(' 01 02 ')
-  return 'sort__img-down'
-} else {
-  //console.log(' 01 03', props.choise, props.title)
-}
-} else {
-return 'sort__img-down sort__img-opacity'
-}
-*/

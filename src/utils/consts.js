@@ -52,8 +52,22 @@ export const nameMonths = {
   '11': 'ноября',
   '12': 'декабря'
 }
+export const rusMonthToEn = {
+  'января': 'January',
+  'февраля': 'February',
+  'марта': 'March',
+  'апреля': 'April',
+  'мая': 'May',
+  'июня': 'June',
+  'июля': 'July',
+  'августа': 'August',
+  'сентября': 'September',
+  'октября': 'October',
+  'ноября': 'Novermber',
+  'декабря': 'December'
+}
 const WEEK_DAYS_FROM_MONDAY = [6, 0, 1, 2, 3, 4, 5];
-const Month = {
+export const Month = {
   January: 0,
   February: 1,
   March: 2,
