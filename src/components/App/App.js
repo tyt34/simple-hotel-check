@@ -5,7 +5,7 @@ import { HashRouter, Routes, Route} from 'react-router-dom'
 ///simple-hotel-check
 function App() {
   return (
-    <HashRouter basename=''>
+    <HashRouter basename='/simple-hotel-check'>
         <Routes>
           <Route path="/" element={
             <>
