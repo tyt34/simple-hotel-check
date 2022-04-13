@@ -35,7 +35,7 @@ function howManyAddMonths(days, startMonth, startDay, startYear) { //
   return countMonths((days - (daysInM[rewriteNumber(startMonth)] - startDay)), (Number(startMonth)+1), addNum, Number(startYear))
 }
 
-function countMonths(dayLeft, startMonth, num, startYear) { // осталось / первый месяц от которого вести отсчет
+function countMonths(dayLeft, startMonth, num, startYear) {
   if (startMonth > 12) {
     startMonth = 1
     startYear = startYear + 1
@@ -59,14 +59,13 @@ function countMonths(dayLeft, startMonth, num, startYear) { // осталось 
     return countMonths(dayLeft, startMonth, num, startYear)
   } else {
     return {
-      dayLeft: dayLeft, // сколько дней осталось добавить к начальному дню
-      num: num, // сколько месяцв осталось добавить к начальному месяцу
+      dayLeft: dayLeft, // номер дня в конечном месяце
+      num: num, // сколько месяцев осталось добавить к начальному месяцу
     }
   }
 }
 
 export function rewriteNumber(m) {
-  //console.log(' -> ')
   if (m < 10) {
     return '0'+m
   } else {
@@ -74,7 +73,7 @@ export function rewriteNumber(m) {
   }
 }
 
-function rewriteDays(days, date) { // необходим год-месяц-день, котороый должен быть получен при суме дней с date
+function rewriteDays(days, date) {
   const m = date.split('.')[1]
   const mNum = Number(m)
   const y = date.split('.')[2]
