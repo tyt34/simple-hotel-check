@@ -54,7 +54,7 @@ function Auth() {
 
   function handleClickEnter(e) {
     e.preventDefault()
-    navigate('/')
+    navigate('/main')
   }
 
   return (
