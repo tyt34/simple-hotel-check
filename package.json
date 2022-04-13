@@ -2,7 +2,6 @@
   "name": "simple-hotel-check",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://engine.hotellook.com/",
   "homepage": "https://tyt34.github.io/simple-hotel-check/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
