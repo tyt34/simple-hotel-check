@@ -17,7 +17,7 @@ export const daysInM = {
   '04': 30,
   '05': 31,
   '06': 30,
-  '07': 30,
+  '07': 31,
   '08': 31,
   '09': 30,
   '10': 31,
@@ -31,7 +31,7 @@ export const daysInMtypeNum = {
   4: 30,
   5: 31,
   6: 30,
-  7: 30,
+  7: 31,
   8: 31,
   9: 30,
   10: 31,
@@ -117,15 +117,15 @@ export function getMonthData(year, month) {
   let day = 1;
 
   for (let i = 0; i < (daysInMonth + monthStartsOn) / DAYS_IN_WEEK; i++) {
-      result[i] = [];
+    result[i] = [];
 
-      for (let j = 0; j < DAYS_IN_WEEK; j++) {
-          if ((i === 0 && j < monthStartsOn) || day > daysInMonth) {
-              result[i][j] = undefined;
-          } else {
-              result[i][j] = new Date(year, month, day++);
-          }
+    for (let j = 0; j < DAYS_IN_WEEK; j++) {
+      if ((i === 0 && j < monthStartsOn) || day > daysInMonth) {
+          result[i][j] = undefined;
+      } else {
+          result[i][j] = new Date(year, month, day++);
       }
+    }
   }
 
   return result;

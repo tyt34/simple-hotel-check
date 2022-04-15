@@ -68,7 +68,9 @@ function Info(props) {
   }
 
   function handleChangeDays(e) {
-    setDays(e.target.value)
+    if (/^\d+$/.test(e.target.value)) {
+      setDays(e.target.value)
+    }
   }
 
   function handleSearch() {
