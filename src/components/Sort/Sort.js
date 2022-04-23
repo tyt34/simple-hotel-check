@@ -1,13 +1,11 @@
-import React, { useEffect } from 'react'
 import './Sort.css'
 import arrowSort from "../../images/arrowSort.svg"
 
-function Sort(props) {
-
+function Sort({title, choise, setChoise, onClick}) {
   function getMainClass() {
-    if ((props.title === 'Рейтинг') && (props.choise === 'rateUp' || props.choise === 'rateDown')) {
+    if ((title === 'Рейтинг') && (choise === 'rateUp' || choise === 'rateDown')) {
       return 'sort sort-choice'
-    } else if ((props.title === 'Цена') && (props.choise === 'costUp' || props.choise === 'costDown')) {
+    } else if ((title === 'Цена') && (choise === 'costUp' || choise === 'costDown')) {
       return 'sort sort-choice'
     } else {
       return 'sort'
@@ -15,29 +13,29 @@ function Sort(props) {
   }
 
   function getClassImg(side) { // тупо перебрал все варианты
-    if ((side === 'up') && (props.title === 'Рейтинг')) {
-      if (props.choise === 'rateUp') {
+    if ((side === 'up') && (title === 'Рейтинг')) {
+      if (choise === 'rateUp') {
         return 'sort__img-up sort__img-opacity'
       } else {
         return 'sort__img-up'
       }
     }
-    if ((side === 'down') && (props.title === 'Рейтинг')) {
-      if (props.choise === 'rateDown') {
+    if ((side === 'down') && (title === 'Рейтинг')) {
+      if (choise === 'rateDown') {
         return 'sort__img-down sort__img-opacity'
       } else {
         return 'sort__img-down'
       }
     }
-    if ((side === 'up') && (props.title === 'Цена')) {
-      if (props.choise === 'costUp') {
+    if ((side === 'up') && (title === 'Цена')) {
+      if (choise === 'costUp') {
         return 'sort__img-up sort__img-opacity'
       } else {
         return 'sort__img-up'
       }
     }
-    if ((side === 'down') && (props.title === 'Цена')) {
-      if (props.choise === 'costDown') {
+    if ((side === 'down') && (title === 'Цена')) {
+      if (choise === 'costDown') {
         return 'sort__img-down sort__img-opacity'
       } else {
         return 'sort__img-down'
@@ -49,10 +47,10 @@ function Sort(props) {
     <>
     <button
       className={getMainClass()}
-      onClick={() => {props.onClick(props.title)}}
+      onClick={() => {onClick(title)}}
     >
       <p className="sort__title">
-        {props.title}
+        {title}
       </p>
 
       <section className="sort__imgs">

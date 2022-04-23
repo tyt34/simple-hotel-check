@@ -3,7 +3,7 @@ import Sort from '../Sort/Sort'
 import List from '../List/List'
 import React, { useState, useEffect } from 'react'
 
-function Favor(props) {
+function Favor({favorHotels, setFavorHotels, hotels, setHotels}) {
   const [choise, setChoise] = useState('rateUp') // варианты ['rateUp', 'rateDown', 'costUp', 'costDown']
 
   function handleChoiseClick(type) {
@@ -23,7 +23,7 @@ function Favor(props) {
   }
 
   useEffect( () => {
-    let arrSort = props.favorHotels
+    let arrSort = favorHotels
     if (choise === 'rateUp') {
       arrSort.sort(sortRateUp)
     }
@@ -36,8 +36,8 @@ function Favor(props) {
     if (choise === 'costDown') {
       arrSort.sort(sortCostDown)
     }
-    props.setFavorHotels([...arrSort])
-  }, [choise, props.favorHotels.length])
+    setFavorHotels([...arrSort])
+  }, [choise, favorHotels.length])
 
   function sortCostUp(a, b) {
     if (a.priceAvg < b.priceAvg) {
@@ -97,11 +97,11 @@ function Favor(props) {
 
         <List
           maxHotels={3}
-          hotels={props.favorHotels} /* тут не логично что hotels={props.favorHotels} но в компоненте list привязка к пропсу отели */
+          hotels={favorHotels} /* тут не логично что hotels={props.favorHotels} но в компоненте list привязка к пропсу отели */
           location={'favor'}
-          setFavorHotels={props.setFavorHotels}
-          nowHotels={props.hotels} /* отели которые сейчас на странице */
-          setHotels={props.setHotels}
+          setFavorHotels={setFavorHotels}
+          nowHotels={hotels} /* отели которые сейчас на странице */
+          setHotels={setHotels}
         />
       </section>
     </>

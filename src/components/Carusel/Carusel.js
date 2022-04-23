@@ -10,8 +10,7 @@ import img7 from '../../images/carusel/slider-img-7.png'
 
 import disableScroll from 'disable-scroll';
 
-
-function Carusel(props) {
+function Carusel() {
   const [items, setItems] = useState([
     {img: img1},
     {img: img2},
@@ -73,8 +72,8 @@ function Carusel(props) {
         className="carusel"
         tabIndex="0"
         onWheel={handleWheel}
-        onMouseEnter={(e) => {disableScroll.on()}}
-        onMouseLeave={(e) => {disableScroll.off()}}
+        onMouseEnter={(e) => {disableScroll.on()}} // чтобы страница не прокручивалась при наведение на компонент карусель
+        onMouseLeave={(e) => {disableScroll.off()}} // чтобы страница не прокручивалась при наведение на компонент карусель
       >
         <img
           className="carusel__img"
@@ -97,8 +96,3 @@ function Carusel(props) {
 }
 
 export default Carusel
-/*
-onMouseEnter={(e) => {disableScroll.on()}}
-onMouseLeave={(e) => {disableScroll.off()}}
-чтобы страница не прокручивалась при наведение на компонент карусель
-*/

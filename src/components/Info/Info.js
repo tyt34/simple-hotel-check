@@ -5,11 +5,8 @@ import Calendar from '../Calendar/Calendar'
 import {
   getHotels, rewriteNumber
 } from '../../utils/hotelApi.js'
-import {
-  nameMonths,
-} from '../../utils/consts.js'
 
-function Info(props) {
+function Info({setHotels, setCityTitle, setDateTitle, setDaysTitle}) {
   const [dateFromCalendar, setDateFromCalendar] = useState(new Date())
   const [openCalend, setOpenCalend] = useState(false)
   const [place, setPlace] = useState('')
@@ -19,16 +16,16 @@ function Info(props) {
   useEffect( () => {
     setPlace('Москва')
     setDays(1)
-    props.setCityTitle('Москва')
+    setCityTitle('Москва')
     const now = new Date()
-    props.setDateTitle(now.getDate() + '.' + rewriteNumber(now.getMonth()+1) + '.' + now.getFullYear())
+    setDateTitle(now.getDate() + '.' + rewriteNumber(now.getMonth()+1) + '.' + now.getFullYear())
     setDate(now.getDate() + '.' + rewriteNumber(now.getMonth()+1) + '.' + now.getFullYear())
 
     getHotels('Москва', now.getDate() + '.' + rewriteNumber(now.getMonth()+1) + '.' + now.getFullYear(), 1)
     .then( res => {
       if (res.status !== 'error') {
-        props.setDaysTitle('1')
-        props.setHotels(res)
+        setDaysTitle('1')
+        setHotels(res)
       }
     })
     .catch( e => {
@@ -78,10 +75,10 @@ function Info(props) {
       getHotels(place, date, days)
       .then( res => {
         if (res.status !== 'error') {
-          props.setCityTitle(place)
-          props.setDateTitle(date)
-          props.setDaysTitle(days)
-          props.setHotels(res)
+          setCityTitle(place)
+          setDateTitle(date)
+          setDaysTitle(days)
+          setHotels(res)
         }
       })
       .catch( e => {
@@ -123,7 +120,7 @@ function Info(props) {
           className="info__calendar-but"
           onClick={handleCalendar}
         >
-          <img className="calendar__ico" src={calendarIco}/>
+          <img alt="иконка календаря" className="calendar__ico" src={calendarIco}/>
         </button>
 
         {
@@ -163,7 +160,7 @@ function Info(props) {
   )
 }
 /*
-тут должна была быть форма, но её нет. Но будет.
+тут должна была быть форма, но её нет. Но будет. Или не будет.
 */
 
 export default Info

@@ -11,29 +11,35 @@ import {
 const fourSpace = "\u00A0\u00A0\u00A0\u00A0"
 const doubleSpace = "\u00A0\u00A0\u00A0\u00A0"
 
-function Hotel(props) {
-  const [isLike, setIsLike] = useState(props.favor)
+function Hotel(
+  {
+    location, hotelId, hotelName, priceAvg, numStars,
+    stars, dateTitle, daysTitle, favor, favorHotels,
+    setFavorHotels, hotels, nowHotels, setHotels
+  }
+) {
+  const [isLike, setIsLike] = useState(favor)
 
   function getDaysHotel() {
-    if (Number(props.daysTitle) === 1) {
-      return doubleSpace+props.daysTitle+' день'
-    } else if ((Number(props.daysTitle) === 2) || (Number(props.daysTitle) === 3) || (Number(props.daysTitle) === 4)) {
-      return doubleSpace+props.daysTitle+' дня'
+    if (Number(daysTitle) === 1) {
+      return doubleSpace+daysTitle+' день'
+    } else if ((Number(daysTitle) === 2) || (Number(daysTitle) === 3) || (Number(daysTitle) === 4)) {
+      return doubleSpace+daysTitle+' дня'
     } else {
-      return doubleSpace+props.daysTitle+' дней'
+      return doubleSpace+daysTitle+' дней'
     }
   }
 
   function getDateHotel() {
-    if (props.location === 'favor') {
+    if (location === 'favor') {
       for (let key in rusMonthToEn) {
-        if (key === props.dateTitle.split(' ')[1]) {
-          return props.dateTitle.split(' ')[0]+' '+rusMonthToEn[key]+', '+props.dateTitle.split(' ')[2]+fourSpace
+        if (key === dateTitle.split(' ')[1]) {
+          return dateTitle.split(' ')[0]+' '+rusMonthToEn[key]+', '+dateTitle.split(' ')[2]+fourSpace
         }
       }
-      return props.dateTitle+fourSpace
+      return dateTitle+fourSpace
     } else {
-      return props.dateTitle+fourSpace
+      return dateTitle+fourSpace
     }
   }
 
@@ -41,64 +47,64 @@ function Hotel(props) {
     setIsLike(!isLike)
     let obj = {
       location: '',
-      hotelId: props.hotelId,
-      hotelName: props.hotelName,
-      priceAvg: props.priceAvg,
-      stars: props.numStars,
-      dateTitle: props.dateTitle,
-      daysTitle: props.daysTitle,
+      hotelId: hotelId,
+      hotelName: hotelName,
+      priceAvg: priceAvg,
+      stars: numStars,
+      dateTitle: dateTitle,
+      daysTitle: daysTitle,
       favor: '',
     }
-    if (props.location === 'result') { // лайк для поиска
+    if (location === 'result') { // лайк для поиска
       if (!isLike) { // лайк поставили
-        let newArr = props.favorHotels.slice()
+        let newArr = favorHotels.slice()
         obj.location = 'favor'
         obj.favor = true
         newArr.push(obj)
-        props.setFavorHotels(newArr)
+        setFavorHotels(newArr)
       } else { // лайк убрали
-        let newArr = props.favorHotels.slice()
+        let newArr = favorHotels.slice()
         let indexForDel
         newArr.map( (h, i) => {
-          if ((h.hotelId === props.hotelId) && (h.dateTitle === props.dateTitle) && (h.daysTitle === props.daysTitle)) {
+          if ((h.hotelId === hotelId) && (h.dateTitle === dateTitle) && (h.daysTitle === daysTitle)) {
             indexForDel = i
           }
         })
         newArr.splice(indexForDel, 1)
-        props.setFavorHotels(newArr)
+        setFavorHotels(newArr)
       }
     } else { // лайк для категории избранное
       if (isLike) { // лайк убрали и другого не дано
         // удаление из категории избранное
-        let newArr = props.hotels.slice()
+        let newArr = hotels.slice()
         let indexForDel
         newArr.map( (h, i) => {
-          if ((h.hotelId === props.hotelId) && (h.dateTitle === props.dateTitle) && (h.daysTitle === props.daysTitle)) {
+          if ((h.hotelId === hotelId) && (h.dateTitle === dateTitle) && (h.daysTitle === daysTitle)) {
             indexForDel = i
           }
         })
         newArr.splice(indexForDel, 1)
-        props.setFavorHotels(newArr)
+        setFavorHotels(newArr)
         // удаление из категории текущего поиска
-        let nowHotels = props.nowHotels.slice()
+        let nowHotels = nowHotels.slice()
         let indexForDelFromNow
         nowHotels.map( (h, i) => {
-          if ((h.hotelId === props.hotelId) && (h.priceAvg === props.priceAvg)) {
+          if ((h.hotelId === hotelId) && (h.priceAvg === priceAvg)) {
             indexForDelFromNow = i
             h.favor = false
           }
         })
-        props.setHotels(nowHotels)
+        setHotels(nowHotels)
       }
     }
   }
 
   useEffect( () => {
-    if (props.favor === false) setIsLike(false)
-  }, [props.favor])
+    if (favor === false) setIsLike(false)
+  }, [favor])
 
   function rewritePrice() {
-    let arrBase = props.priceAvg.toString().split('.')
+    let arrBase = priceAvg.toString().split('.')
     let arrSecond = arrBase[0].toString().split('')
     arrSecond.splice(-3, 0, ' ')
     return arrSecond.join('')
@@ -108,7 +114,7 @@ function Hotel(props) {
     <>
       <section className="hotel">
         {
-          props.location === 'result' ?
+          location === 'result' ?
             (
               <img className="hotel__ico" alt="иконка домика" src={hotelIco}/>
             )
@@ -119,7 +125,7 @@ function Hotel(props) {
         }
 
         <section className={
-          props.location === 'result' ?
+          location === 'result' ?
             (
               'hotel__info hotel__info-result'
             ) : (
@@ -127,9 +133,9 @@ function Hotel(props) {
             )
         }>
           <section className="hotel__top">
-            <p className="hotel__name"> {props.hotelName} </p>
+            <p className="hotel__name"> {hotelName} </p>
             <button className={
-              props.location === 'result' ?
+              location === 'result' ?
                 (
                   'hotel__like hotel__like-result'
                 ) : (
@@ -155,7 +161,7 @@ function Hotel(props) {
             </button>
           </section>
           <p className={
-            props.location === 'result' ?
+            location === 'result' ?
               (
                 'hotel__date hotel__date-result'
               ) : (
@@ -164,7 +170,7 @@ function Hotel(props) {
           }> {getDateHotel()} — {getDaysHotel()} </p>
 
           <section className={
-            props.location === 'result' ?
+            location === 'result' ?
               (
                 'hotel__bot hotel__bot-result'
               ) : (
@@ -173,14 +179,16 @@ function Hotel(props) {
           }>
 
             <section className="hotel__stars">
-              { props.stars.map( (n, i) =>
-                n === 'star' ?
-                  (
-                    <img key={i} className="hotel__star" alt="звезда отеля" src={fullStar}/>
-                  ) : (
-                    <img key={i} className="hotel__star" alt="звезда отеля" src={star}/>
-                  )
-              )}
+              {
+                stars.map( (n, i) =>
+                  n === 'star' ?
+                    (
+                      <img key={i} className="hotel__star" alt="звезда отеля" src={fullStar}/>
+                    ) : (
+                      <img key={i} className="hotel__star" alt="звезда отеля" src={star}/>
+                    )
+                )
+              }
             </section>
 
             <section className="hotel__price">
@@ -196,7 +204,7 @@ function Hotel(props) {
       </section>
 
       <div className={
-        ((props.location === 'favor') && (props.hotels[props.hotels.length-1].hotelId !== props.hotelId)) ?
+        ((location === 'favor') && (hotels[hotels.length-1].hotelId !== hotelId)) ?
           (
             'hotel__line-favor'
           ) : (
@@ -205,7 +213,7 @@ function Hotel(props) {
       }></div>
 
       <div className={
-        (props.location === 'result') ?
+        (location === 'result') ?
           (
             'hotel__line-result'
           ) : (
