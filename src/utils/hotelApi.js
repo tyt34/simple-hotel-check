@@ -8,7 +8,6 @@ import {
 
 
 export const getHotels = (loc, date, days) => {
-  //console.log(newrewriteDays(days, date))
   console.log(pageWithHotels + loc + secondArg + rewriteDate(date) + thirdArg + newrewriteDays(days, date) + fourArg)
   return fetch(pageWithHotels + loc + secondArg + rewriteDate(date) + thirdArg + newrewriteDays(days, date) + fourArg, {
     method: 'GET',
@@ -19,7 +18,7 @@ export const getHotels = (loc, date, days) => {
 }
 
 function rewriteDate(date) { // необходим год-месяц-день
-  return date.split('.')[2]+'-'+date.split('.')[1]+'-'+date.split('.')[0]
+  return date.split('.')[2]+'-'+date.split('.')[1]+'-'+rewriteNumber(date.split('.')[0])
 }
 
 function leapYear(year) {
