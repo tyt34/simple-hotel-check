@@ -2,9 +2,9 @@
 
 ![](https://shields.io/badge/-HTML-orange)
 ![](https://shields.io/badge/-CSS-blue)
+![](https://shields.io/badge/-SCSS-C76494)
 ![](https://shields.io/badge/-JavaScript-yellow)
 ![](https://shields.io/badge/-React.JS-05D9FF)
-![](https://shields.io/badge/-SCSS-C76494)
 
 ## Описание
  - Данное приложение позволяет найти отели. Для этого необходимо выбрать город, дату заселения, продолжительность съема отеля.
