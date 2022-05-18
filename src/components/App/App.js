@@ -1,4 +1,3 @@
-import './App.css';
 import Main from '../Main/Main'
 import Auth from '../Auth/Auth'
 import { HashRouter, Routes, Route} from 'react-router-dom'

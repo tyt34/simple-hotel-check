@@ -1,5 +1,5 @@
 import React from 'react'
-import './List.css'
+import './List.scss'
 import Hotel from '../Hotel/Hotel'
 
 function List(props) {

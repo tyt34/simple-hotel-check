@@ -1,5 +1,5 @@
-import './Carusel.css'
-import React, { useState, useEffect, useRef } from 'react'
+import './Carusel.scss'
+import React, { useState, useEffect } from 'react'
 import img1 from '../../images/carusel/slider-img-1.png'
 import img2 from '../../images/carusel/slider-img-2.png'
 import img3 from '../../images/carusel/slider-img-3.png'

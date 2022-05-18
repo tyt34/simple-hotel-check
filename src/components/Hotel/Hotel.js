@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import './Hotel.css'
+import './Hotel.scss'
 import hotelIco from '../../images/house.png'
 import fullStar from '../../images/star-full.svg'
 import star from '../../images/star.svg'

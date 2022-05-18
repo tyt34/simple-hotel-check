@@ -1,9 +1,16 @@
+@import "../../utils/scss-consts/font-base.scss";
+@import "../../utils/scss-consts/size.scss";
+
 .main {
-  width: 1441px;
   height: 1024px;
   background-color: #F4F4F4;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 959px) {
+  .main {
+    width: 1441px;
+  }
 }
 
 .roof {
@@ -12,11 +19,7 @@
 }
 
 .roof__text {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 28px;
+  @include font-base(24px, 28px, 500);
   display: flex;
   align-items: center;
   margin: 32px;
@@ -25,23 +28,17 @@
 .roof__but {
   display: flex;
   justify-content: space-between;
-  width: 83px;
-  height: 34px;
+  @include size(83px, 34px);
   padding: 0;
   align-items: center;
-  margin-right: 33px;
-  margin-top: 30px;
+  margin: 30px 33px 0 0;
   border: 0;
   cursor: pointer;
   background-color: #F4F4F4;
 }
 
 .roof__title {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
+  @include font-base(16px, 20px, 400);
   text-align: right;
   letter-spacing: -0.408px;
   color: #41522E;

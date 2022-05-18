@@ -1,3 +1,6 @@
+@import "../../utils/scss-consts/size.scss";
+@import "../../utils/scss-consts/font-base.scss";
+
 .hotel {
   display: flex;
   margin-left: 32px;
@@ -8,8 +11,7 @@
 }
 
 .hotel__ico {
-  width: 64px;
-  height: 64px;
+  @include size(64px, 64px);
   margin-right: 24px;
 }
 
@@ -47,26 +49,17 @@
 }
 
 .hotel__like-result {
-  margin-left: 1px;
-  margin-right: 8px;
+  margin: 0 8px 0 1px;
 }
 
 .hotel__name {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 22px;
+  @include font-base(17px, 22px, 400);
   letter-spacing: -0.408px;
   color: #424242;
 }
 
 .hotel__date {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 22px;
+  @include font-base(14px, 22px, 400);
   letter-spacing: -0.408px;
   color: #878787;
   margin-top: 3px;
@@ -77,16 +70,10 @@
 }
 
 .hotel__title {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 11px;
-  line-height: 22px;
+  @include font-base(11px, 22px, 400);
   letter-spacing: -0.408px;
   color: #878787;
-  margin-left: 1px;
-  margin-right: 22px;
-  margin-top: 3px;
+  margin: 3px 22px 0 1px;
 }
 
 .hotel__price {
@@ -95,11 +82,7 @@
 }
 
 .hotel__cost {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 22px;
+  @include font-base(17px, 22px, 400);
   text-align: right;
   letter-spacing: -0.408px;
   color: #424242;
@@ -107,32 +90,25 @@
 }
 
 .hotel__line-result {
-  width: 568px;
-  height: 1px;
+  @include size(568px, 1px);
   left: 0px;
   top: 517px;
   background: rgba(135, 135, 135, 0.2);
   border-radius: 8px;
   transform: matrix(1, 0, 0, -1, 0, 0);
-  margin-left: 32px;
-  margin-bottom: 20px;
-  margin-top: 10px;
+  margin: 10px 0 20px 32px
 }
 
 .hotel__line-favor {
-  width: 296px;
-  height: 1px;
+  @include size(296px, 1px);
   background: rgba(135, 135, 135, 0.2);
   border-radius: 8px;
   transform: matrix(1, 0, 0, -1, 0, 0);
-  margin-top: 11px;
-  margin-left: 32px;
-  margin-bottom: 14px;
+  margin: 11px 0 14px 32px;
 }
 
 .hotel__favor {
-  width: 20px;
-  height: 20px;
+  @include size(20px, 20px);
 }
 
 .hotel__star {

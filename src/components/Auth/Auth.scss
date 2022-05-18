@@ -1,7 +1,9 @@
+@import "../../utils/scss-consts/size.scss";
+@import "../../utils/scss-consts/font-base.scss";
+
 .auth {
   display: flex;
-  width: 1440px;
-  height: 1024px;
+  @include size(1440px, 1024px);
   background: url('../../images/auth.png') no-repeat;
   background-size: 100%;
   margin-left: auto;
@@ -11,46 +13,31 @@
 .auth__blur {
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(20px);
-  width: 1440px;
-  height: 1024px;
+  @include size(1440px, 1024px);
 }
 
 .auth__panel {
   display: flex;
   flex-direction: column;
-  width: 409px;
-  height: 382px;
-  margin-left: auto;
-  margin-right: auto;
+  @include size(409px, 382px);
+  margin: 321px auto 0;
   background: #FFFFFF;
   box-shadow: 0px 4px 33px rgba(0, 0, 0, 0.04);
   border-radius: 16px;
-  margin-top: 321px;
 }
 
 .auth__title {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 28px;
+  @include font-base(24px, 28px, 500);
   align-items: center;
   text-align: center;
   color: #424242;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 32px;
+  margin: 32px auto 0;
 }
 
 .auth__name-input {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 19px;
+  @include font-base(16px, 19px, 300);
   color: #424242;
-  margin-top: 32px;
-  margin-left: 32px;
+  margin: 32px 0 0 32px;
 }
 
 .auth__name-input:nth-child(5) {
@@ -62,12 +49,9 @@
   border: 1px solid #C9CACC;
   box-sizing: border-box;
   border-radius: 4px;
-  width: 345px;
-  height: 50px;
+  @include size(345px, 50px);
+  margin: 7px 0 0 32px;
   padding: 15px;
-  margin-left: 32px;
-  margin-top: 7px;
-
   font-weight: 300;
 }
 
@@ -76,21 +60,15 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 345px;
-  height: 50px;
-  margin-left: 32px;
-  margin-top: 18px;
+  @include size(345px, 50px);
+  margin: 18px 0 0 32px;
   background: linear-gradient(104.34deg, #41522E -15.34%, #BE8022 145.95%);
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
 }
 
 .auth__button-title {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
+  @include font-base(16px, 20px, 500);
   color: #FFFFFF;
 }
 
@@ -100,8 +78,7 @@
   color: red;
   font-size: 14px;
   opacity: 1;
-  margin-top: 7px;
-  margin-left: 32px;
+  margin: 7px 0 0 32px;
 }
 
 .auth__enter-disabled {

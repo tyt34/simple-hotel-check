@@ -1,16 +1,22 @@
+@import "../../utils/scss-consts/size.scss";
+
 .list-result {
-  height: 529px;
+  @include size(580px, 529px);
   overflow-y: scroll;
   overflow-x: hidden;
-  width: 632px;
   margin-top: 3px;
 }
 
+@media screen and (min-width: 959px) {
+  .list-result {
+    width: 632px;
+  }
+}
+
 .list-favor {
-  height: 288px;
+  @include size(352px, 288px);
   overflow-y: scroll;
   overflow-x: hidden;
-  width: 352px;
 }
 
 .list::-webkit-scrollbar {

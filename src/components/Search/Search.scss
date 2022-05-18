@@ -1,9 +1,14 @@
 .search {
   display: flex;
-  width: 1048px;
   height: 906px;
-  margin-left: 208px;
-  justify-content: space-between;
+}
+
+@media screen and (min-width: 959px) {
+  .search {
+    margin-left: 208px;
+    width: 1048px;
+    justify-content: space-between;
+  }
 }
 
 .search__left {

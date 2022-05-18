@@ -1,4 +1,4 @@
-import './Sort.css'
+import './Sort.scss'
 import arrowSort from "../../images/arrowSort.svg"
 
 function Sort({title, choise, setChoise, onClick}) {

@@ -6,7 +6,7 @@ import arrow from "../../images/back.svg"
 
 import * as calendar from '../../utils/consts';
 
-import './Calendar.css';
+import './Calendar.scss';
 
 export default class Calendar extends React.Component {
     static defaultProps = {

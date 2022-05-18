@@ -1,4 +1,4 @@
-import './Favor.css'
+import './Favor.scss'
 import Sort from '../Sort/Sort'
 import List from '../List/List'
 import React, { useState, useEffect } from 'react'

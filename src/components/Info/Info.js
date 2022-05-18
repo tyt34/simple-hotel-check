@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import './Info.css'
+import './Info.scss'
 import calendarIco from '../../images/calendar.svg'
 import Calendar from '../Calendar/Calendar'
 import {

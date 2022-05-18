@@ -1,5 +1,5 @@
 import React from 'react'
-import './Main.css'
+import './Main.scss'
 import { useNavigate} from 'react-router-dom'
 import imgExit from "../../images/exit.svg"
 import Search from '../Search/Search'

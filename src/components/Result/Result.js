@@ -1,5 +1,5 @@
 import React from 'react'
-import './Result.css'
+import './Result.scss'
 import arrowSearch from "../../images/arrowSearch.svg"
 import Carusel from '../Carusel/Carusel'
 import List from '../List/List'

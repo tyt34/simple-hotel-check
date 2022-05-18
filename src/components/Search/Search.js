@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './Search.css'
+import './Search.scss'
 import Info from '../Info/Info'
 import Favor from '../Favor/Favor'
 import Result from '../Result/Result'

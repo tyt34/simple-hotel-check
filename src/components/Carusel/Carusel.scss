@@ -1,16 +1,15 @@
+@import "../../utils/scss-consts/size.scss";
+
 .carusel {
   display: flex;
   justify-content: center;
-  width: 600px;
-  height: 149px;
-  margin-left: auto;
-  margin-right: auto;
+  @include size(600px, 149px);
+  margin: 0 auto;
   overflow-x: scroll;
 }
 
 .carusel__img {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 0 10px;
 }
 
 .carusel::-webkit-scrollbar {
